@@ -7,9 +7,6 @@ export const getUserList = () =>
     }
     throw new Error("Internal Server Error. Can't display users");
   });
-  
-//
-
 
 export const createUser = (UserData) =>
   fetch(baseUrl, {
@@ -20,16 +17,11 @@ export const createUser = (UserData) =>
     body: JSON.stringify(UserData),
   });
 
-
-
-//
-
-  export const deleteUser = (userId) => {
-    return fetch(`${baseUrl}/${userId}`, {
-      method: 'DELETE',
-    });
-  };
-//
+export const deleteUser = (userId) => {
+  return fetch(`${baseUrl}/${userId}`, {
+    method: 'DELETE',
+  });
+};
 
 export const updateUser = (userId, changedData) =>
   fetch(`${baseUrl}/${userId}`, {
@@ -39,6 +31,3 @@ export const updateUser = (userId, changedData) =>
     },
     body: JSON.stringify(changedData),
   });
-
-
-

@@ -2,19 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import TableRow from './TableRow';
 import TableHeader from './TableHeader';
-import *as usersAction from '../datafile/user.actions';
+import * as usersAction from '../datafile/user.actions';
 import Modal from './Modal';
 import { OpenBtn, MainConteiner, Title, Table } from './style-js/aMainScrean';
 
-
 const TableUsers = ({ fetchDataRecived, usersList }) => {
+  const [activ, setActiv] = useState(false);
 
-  const [activ, setActiv] = useState(false)
-  
-const openModal = () => { 
-setActiv(true)
-}
-
+  const openModal = () => {
+    setActiv(true);
+  };
 
   useEffect(() => {
     fetchDataRecived();
@@ -44,12 +41,9 @@ const mapDispatch = {
 };
 
 const mapState = (state) => {
-
   return {
     usersList: state.Users.userData,
   };
 };
 
 export default connect(mapState, mapDispatch)(TableUsers);
-
-

@@ -1,4 +1,4 @@
-import { USERS_DATA_RECIVED,  } from './user.actions';
+import { USERS_DATA_RECIVED } from './user.actions';
 
 const initialState = {
   userData: [],
@@ -12,7 +12,6 @@ const userReducer = (state = initialState, action) => {
         userData: action.payload,
       };
     }
- 
 
     default:
       return state;

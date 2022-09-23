@@ -6,7 +6,6 @@ export const Title = styled.p`
   text-transform: uppercase;
 `;
 
-
 export const MainConteiner = styled.div`
   width: 100vw;
   height: 100vh;
@@ -29,12 +28,29 @@ export const OpenBtn = styled.button`
   padding: 0;
   margin-top: 15px;
   font-size: 25px;
-  color:grey;
+  color: grey;
 `;
-
 
 export const Table = styled.table`
   background-color: green;
   padding: 5px;
   border-radius: 8px;
 `;
+
+export const TableCell = styled.td`
+  padding: 5px;
+  background-color: white;
+  border-radius: 1px;
+  min-width: 20px;
+`;
+export const Input = styled.input`
+  background-color: yellow;
+  border: none;
+  width: 97%;
+`;
+
+ export const STableRow = styled.tr`
+   background-color: yellow;
+   border: none;
+   width: 97%;
+ `;

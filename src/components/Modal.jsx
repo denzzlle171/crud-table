@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {createdUser} from '../datafile/user.actions'
+import { createdUser } from '../datafile/user.actions';
 import {
   SModal,
   Content,
@@ -12,8 +12,8 @@ import {
 import { useDispatch } from 'react-redux';
 
 const Modal = ({ Activate }) => {
-const dispatch = useDispatch();
-  
+  const dispatch = useDispatch();
+
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [about, setAbout] = useState('');
@@ -59,9 +59,7 @@ const dispatch = useDispatch();
               placeholder="about user"
             />
 
-            <CreateBtn type="submit" >
-              Create
-            </CreateBtn>
+            <CreateBtn type="submit">Create</CreateBtn>
           </form>
         </Wraper>
       </Content>

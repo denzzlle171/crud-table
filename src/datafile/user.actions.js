@@ -9,7 +9,6 @@ export const userDataRecived = (userData) => {
   };
 };
 
-
 export const fetchDataRecived = () => {
   return function (dispatch) {
     getUserList().then((userData) => dispatch(userDataRecived(userData)));
@@ -18,10 +17,9 @@ export const fetchDataRecived = () => {
 
 export const deleteDataRecived = (id) => {
   return function (dispatch) {
-   deleteUser(id).then(() => dispatch(fetchDataRecived()));
+    deleteUser(id).then(() => dispatch(fetchDataRecived()));
   };
 };
-
 
 export const updateDataRecived = (usreId, name, age, about) => {
   return function (dispatch, getState) {
@@ -34,13 +32,12 @@ export const updateDataRecived = (usreId, name, age, about) => {
       age,
       about,
     };
-    console.log(updatedUser );
+    console.log(updatedUser);
     updateUser(usreId, updatedUser).then(() => dispatch(fetchDataRecived()));
   };
 };
 
-
-export const createdUser = (name,age,about) => {
+export const createdUser = (name, age, about) => {
   const thunkActions = function (dispatch) {
     const userData = {
       name,

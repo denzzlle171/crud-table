@@ -1,41 +1,18 @@
 import { useState } from 'react';
-import styled from 'styled-components'
 import { useDispatch } from 'react-redux';
 import { deleteDataRecived, updateDataRecived } from '../datafile/user.actions';
-
- 
-
-
-const STableRow = styled.tr`
-  
-`;
-const TableCell = styled.td`
-
-padding:5px;
-  background-color: white;
-  border-radius: 1px;
-  min-width: 20px;
-
-`;
-const Input = styled.input`
-  background-color: yellow;
-   border:none;
-  width: 97%;
-`;
-
-
-
+import { TableCell, Input, STableRow } from './style-js/aMainScrean';
 
 const TableRow = ({ item }) => {
   const dispatch = useDispatch();
-  
-  const [change, setChange] = useState('static')
-  
+
+  const [change, setChange] = useState('static');
+
   const redactRow = (id) => {
     setChange('redact');
   };
 
-  const staticCell = change === 'static'
+  const staticCell = change === 'static';
   const redactCell = change === 'redact';
 
   const [name, setName] = useState(item.name);
@@ -44,12 +21,10 @@ const TableRow = ({ item }) => {
 
   const deleteRow = (id) => {
     dispatch(deleteDataRecived(id));
-   
-  }
-  const saveRow = (id,) => {
+  };
+  const saveRow = (id) => {
     dispatch(updateDataRecived(id, name, age, about));
     setChange('static');
-    
   };
 
   return (
