@@ -11,7 +11,6 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
-  
 `;
 export const Content = styled.div`
   width: 300px;

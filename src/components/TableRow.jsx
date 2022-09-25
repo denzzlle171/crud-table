@@ -1,14 +1,21 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteDataRecived, updateDataRecived } from '../datafile/user.actions';
-import { TableCell, Input, STableRow } from './style-js/aMainScrean';
+import {
+  TableCell,
+  Input,
+  STableRow,
+  SBtnEdit,
+  SBtnDelete,
+  SBtnSave,
+} from './style-js/aMainScrean';
 
 const TableRow = ({ item }) => {
   const dispatch = useDispatch();
 
   const [change, setChange] = useState('static');
 
-  const redactRow = (id) => {
+  const redactRow = () => {
     setChange('redact');
   };
 
@@ -68,18 +75,18 @@ const TableRow = ({ item }) => {
       <TableCell>
         {staticCell && (
           <>
-            <button onClick={() => redactRow(item.id)}>
+            <SBtnEdit onClick={() => redactRow(item.id)}>
               <i className="fa-regular fa-pen-to-square"></i>
-            </button>
-            <button onClick={() => deleteRow(item.id)}>
+            </SBtnEdit>
+            <SBtnDelete onClick={() => deleteRow(item.id)}>
               <i className="fa-regular fa-trash-can"></i>
-            </button>
+            </SBtnDelete>
           </>
         )}
         {redactCell && (
-          <button onClick={() => saveRow(item.id)}>
+          <SBtnSave onClick={() => saveRow(item.id)}>
             <i className="fa-regular fa-floppy-disk"></i>
-          </button>
+          </SBtnSave>
         )}
       </TableCell>
     </STableRow>

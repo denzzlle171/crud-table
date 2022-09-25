@@ -20,12 +20,6 @@ const Modal = ({ Activate }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const newEvent = {
-      name,
-      age,
-      about,
-    };
-    console.log(newEvent);
     dispatch(createdUser(name, age, about));
     Activate(false);
   };

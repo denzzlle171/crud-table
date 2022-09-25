@@ -29,6 +29,11 @@ export const OpenBtn = styled.button`
   margin-top: 15px;
   font-size: 25px;
   color: grey;
+  opacity:  0.6;
+
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 export const Table = styled.table`
@@ -42,15 +47,44 @@ export const TableCell = styled.td`
   background-color: white;
   border-radius: 1px;
   min-width: 20px;
+  
 `;
 export const Input = styled.input`
   background-color: yellow;
   border: none;
-  width: 97%;
 `;
 
  export const STableRow = styled.tr`
    background-color: yellow;
    border: none;
-   width: 97%;
  `;
+
+const IconBtn = styled.button`
+  font-size: 1em;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: none;
+`;
+
+export const SBtnEdit = styled(IconBtn)`
+  &:hover {
+    color: white;
+    color: orange;
+  }
+`;
+
+export const SBtnDelete = styled(IconBtn)`
+    &:hover {
+    background-color: white;
+    color: red;
+  }
+`;
+
+export const SBtnSave = styled(IconBtn)`
+  font-size: 1em;
+  &:hover {
+    background-color: white;
+    color: green;
+  }
+`;
