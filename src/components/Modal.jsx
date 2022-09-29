@@ -10,8 +10,14 @@ import {
   CreateBtn,
 } from './style-js/sModal';
 import { useDispatch } from 'react-redux';
+import { useContext } from 'react';
+import  ModalContext  from '../context';
 
-const Modal = ({ Activate }) => {
+const Modal = () => {
+const { setActiv } = useContext(ModalContext);
+
+
+
   const dispatch = useDispatch();
 
   const [name, setName] = useState('');
@@ -21,14 +27,14 @@ const Modal = ({ Activate }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(createdUser(name, age, about));
-    Activate(false);
+    setActiv(false);
   };
 
   return (
     <SModal>
       <Content>
         <Wraper>
-          <CloseBtm onClick={() => Activate(false)}>+</CloseBtm>
+          <CloseBtm onClick={() => setActiv(false)}>+</CloseBtm>
           <Title>New user</Title>
           <form onSubmit={onSubmit}>
             <Sfild

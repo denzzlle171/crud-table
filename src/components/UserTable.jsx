@@ -7,12 +7,13 @@ import Modal from './Modal';
 import { OpenBtn, Title, Table, MainConteiner } from './style-js/aMainScrean';
 import Spiner from './Spiner';
 
+import ModalContext from '../context';
 
 const TableUsers = ({ fetchDataRecived, usersList }) => {
 
   const isFetch = useSelector((state) => state.Users.isFetching);
   
-  const [activ, setActiv] = useState(false);
+  const [activ, setActiv] = useState(false);//
 
   const openModal = () => {
     setActiv(true);
@@ -23,22 +24,24 @@ const TableUsers = ({ fetchDataRecived, usersList }) => {
   }, []);
 
   return (
-    <MainConteiner>
-      <Title>Users list</Title>
-      <Table>
-        <thead>
-          <TableHeader />
-        </thead>
-        <tbody>
-          {usersList.map((item) => (
-            <TableRow key={item.id} item={item} />
-          ))}
-        </tbody>
-      </Table>
-      <OpenBtn onClick={openModal}>+</OpenBtn>
-      {activ && <Modal Activate={setActiv} />}
-      {isFetch && <Spiner />}
-    </MainConteiner>
+    <ModalContext.Provider value={{setActiv}}>
+      <MainConteiner>
+        <Title>Users list</Title>
+        <Table>
+          <thead>
+            <TableHeader />
+          </thead>
+          <tbody>
+            {usersList.map((item) => (
+              <TableRow key={item.id} item={item} />
+            ))}
+          </tbody>
+        </Table>
+        <OpenBtn onClick={openModal}>+</OpenBtn>
+        {activ && <Modal  />}
+        {isFetch && <Spiner />}
+      </MainConteiner>
+    </ModalContext.Provider>
   );
 };;
 
