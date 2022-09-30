@@ -21,7 +21,7 @@ const TableUsers = ({ fetchDataRecived, usersList }) => {
 
   useEffect(() => {
     fetchDataRecived();
-  }, []);
+  }, [fetchDataRecived]);
 
   return (
     <ModalContext.Provider value={{setActiv}}>
